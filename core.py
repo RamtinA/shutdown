@@ -5,6 +5,10 @@
 from gi.repository import Gtk
 
 class AppWindow(Gtk.Window):
+	
+
+
+
 
 	def __init__(self):
 		#Window Properties
@@ -73,13 +77,12 @@ class AppWindow(Gtk.Window):
 		self.add(vbox)
 		self.add(SpinBox)
 
-		def on_button_toggled(self, button, name):
-			if button.get_active():
-				state = "on"
-			else:
-				state = "off"
-			print("Button", name, "was turned", state)
-
+	def on_button_toggled(self, button, name):
+		if button.get_active():
+			state = "on"
+		else:
+			state = "off"
+		print("Button", name, "was turned", state)
 
 
 
