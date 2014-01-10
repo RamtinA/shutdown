@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
 
-
 from gi.repository import Gtk
 
 class AppWindow(Gtk.Window):
-	
+
 
 
 
@@ -20,15 +19,15 @@ class AppWindow(Gtk.Window):
 		SpinBox = Gtk.Box(spacing=10)
 		RBBox = Gtk.Box(spacing = 10)
 		BBox = Gtk.Box(spacing = 10)
-		
+
 		#Label
 		StatusLabel = Gtk.Label("Select One of the options")
-		
+
 
 		#SpinButtons
 		HAdjustment = Gtk.Adjustment(0, 0, 23, 1, 10, 0)
 		MAdjustment = Gtk.Adjustment(0, 0, 59, 1, 10, 0)	
-	
+
 		SBHours = Gtk.SpinButton()
 		SBHours.set_adjustment(HAdjustment)
 
@@ -43,8 +42,8 @@ class AppWindow(Gtk.Window):
 		RestartRB = Gtk.RadioButton.new_from_widget(ShutdownRB)
 		RestartRB.set_label("Restart")
 		#RestartRB.connect("toggled",defchoice,"restart")
-		
-		
+
+
 		HaltRB = Gtk.RadioButton.new_from_widget(ShutdownRB)
 		HaltRB.set_label("Halt")
 		#HaltRB.connect("toggled",defchoice,"halt")
@@ -58,21 +57,21 @@ class AppWindow(Gtk.Window):
 		##Horizontal Boxes
 		SpinBox.pack_start(SBHours,True,True,0)
 		SpinBox.pack_start(SBMinutes,True,True,0)
-		
+
 		RBBox.pack_start(ShutdownRB,True,True,0)
 		RBBox.pack_start(RestartRB,True,True,0)
 		RBBox.pack_start(HaltRB,True,True,0)
-		
+
 		BBox.pack_start(DoneButton,True,True,0)
 		BBox.pack_start(CancelButton,True,True,0)
-		
+
 		#Vertical Boxes
 		vbox.pack_start(StatusLabel,False,False,2)
 		vbox.pack_start(SpinBox,False,False,2)
 		vbox.pack_start(RBBox,False,False,2)
 		vbox.pack_start(BBox,False,False,2)
-		
-		
+
+
 		#Add Box
 		self.add(vbox)
 		self.add(SpinBox)
