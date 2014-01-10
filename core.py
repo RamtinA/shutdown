@@ -4,11 +4,6 @@
 from gi.repository import Gtk
 
 class AppWindow(Gtk.Window):
-
-
-
-
-
 	def __init__(self):
 		#Window Properties
 		Gtk.Window.__init__(self, title="Shutdown")
@@ -23,14 +18,12 @@ class AppWindow(Gtk.Window):
 		#Label
 		StatusLabel = Gtk.Label("Select One of the options")
 
-
 		#SpinButtons
 		HAdjustment = Gtk.Adjustment(0, 0, 23, 1, 10, 0)
 		MAdjustment = Gtk.Adjustment(0, 0, 59, 1, 10, 0)	
 
 		SBHours = Gtk.SpinButton()
 		SBHours.set_adjustment(HAdjustment)
-
 
 		SBMinutes = Gtk.SpinButton()
 		SBMinutes.set_adjustment(MAdjustment)
@@ -43,11 +36,9 @@ class AppWindow(Gtk.Window):
 		RestartRB.set_label("Restart")
 		#RestartRB.connect("toggled",defchoice,"restart")
 
-
 		HaltRB = Gtk.RadioButton.new_from_widget(ShutdownRB)
 		HaltRB.set_label("Halt")
 		#HaltRB.connect("toggled",defchoice,"halt")
-
 
 		#Buttons
 		DoneButton = Gtk.Button("Done")
@@ -70,7 +61,6 @@ class AppWindow(Gtk.Window):
 		vbox.pack_start(SpinBox,False,False,2)
 		vbox.pack_start(RBBox,False,False,2)
 		vbox.pack_start(BBox,False,False,2)
-
 
 		#Add Box
 		self.add(vbox)
