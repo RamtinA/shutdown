@@ -8,7 +8,7 @@ class AppWindow(Gtk.Window):
 		#Window Properties
 		Gtk.Window.__init__(self, title="Shutdown")
 		self.set_border_width(10)
-
+		self.set_position(Gtk.WindowPosition.CENTER)
 
 		#Box
 		vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
@@ -43,6 +43,8 @@ class AppWindow(Gtk.Window):
 
 		#Buttons
 		DoneButton = Gtk.Button("Done")
+		DoneButton.connect("clicked",self.Done_Clicked)
+
 		CancelButton =Gtk.Button("Cancel")
 
 		#Boxes
@@ -75,6 +77,11 @@ class AppWindow(Gtk.Window):
 		else:
 			state = "off"
 		print("Button", name, "was turned", state)
+
+
+	def Done_Clicked(self,button):
+		print "Done Clicked"
+		self.DoneButton.set_sensitive(False)
 
 
 
