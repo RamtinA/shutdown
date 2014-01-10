@@ -9,6 +9,7 @@ class AppWindow(Gtk.Window):
 		Gtk.Window.__init__(self, title="Shutdown")
 		self.set_border_width(10)
 
+
 		#Box
 		vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
 		SpinBox = Gtk.Box(spacing=10)
@@ -30,15 +31,15 @@ class AppWindow(Gtk.Window):
 
 		#RadioButtons
 		ShutdownRB = Gtk.RadioButton.new_with_label_from_widget(None,"Shutdown")
-		ShutdownRB.connect("toggled",self.on_button_toggled, "1")
+		ShutdownRB.connect("toggled",self.on_button_toggled, "shutdown")
 
 		RestartRB = Gtk.RadioButton.new_from_widget(ShutdownRB)
 		RestartRB.set_label("Restart")
-		#RestartRB.connect("toggled",defchoice,"restart")
+		RestartRB.connect("toggled",self.on_button_toggled, "restart")
 
 		HaltRB = Gtk.RadioButton.new_from_widget(ShutdownRB)
 		HaltRB.set_label("Halt")
-		#HaltRB.connect("toggled",defchoice,"halt")
+		HaltRB.connect("toggled",self.on_button_toggled, "halt")
 
 		#Buttons
 		DoneButton = Gtk.Button("Done")
@@ -69,6 +70,8 @@ class AppWindow(Gtk.Window):
 	def on_button_toggled(self, button, name):
 		if button.get_active():
 			state = "on"
+			labeltext = "You want",name,"your pc at"
+			self.StatusLabel.set_text("test")
 		else:
 			state = "off"
 		print("Button", name, "was turned", state)
