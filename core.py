@@ -2,7 +2,7 @@
 
 
 from gi.repository import Gtk
-import subprocess
+import subprocess,time
 
 class AppWindow(Gtk.Window):
 	def __init__(self):
@@ -13,17 +13,21 @@ class AppWindow(Gtk.Window):
 		
 		#Variables
 		self.type = "poweroff"
-		self.Hours = 00
-		self.Minutes = 00
+		self.Hours = int( time.strftime("%H",time.localtime()) )
+		self.Minutes = int( time.strftime("%M",time.localtime()) )
 
 		#Box
 		vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+		LBox = Gtk.Box(spacing=10)
 		SpinBox = Gtk.Box(spacing=10)
 		RBBox = Gtk.Box(spacing = 10)
 		BBox = Gtk.Box(spacing = 10)
 
+
 		#Label
 		self.StatusLabel = Gtk.Label("Set time for your command")
+		self.HourLabel = Gtk.Label("Hour")
+		self.MinutesLabel = Gtk.Label("Minutes")
 
 		#SpinButtons
 		HAdjustment = Gtk.Adjustment(0, 0, 23, 1, 10, 0)
@@ -31,9 +35,11 @@ class AppWindow(Gtk.Window):
 
 		self.SBHours = Gtk.SpinButton()
 		self.SBHours.set_adjustment(HAdjustment)
+		self.SBHours.set_value(self.Hours)
 
 		self.SBMinutes = Gtk.SpinButton()
 		self.SBMinutes.set_adjustment(MAdjustment)
+		self.SBMinutes.set_value(self.Minutes)
 
 		#RadioButtons
 		self.ShutdownRB = Gtk.RadioButton.new_with_label_from_widget(None,"shutdown")
@@ -56,6 +62,10 @@ class AppWindow(Gtk.Window):
 
 		#Boxes
 		##Horizontal Boxes
+
+		LBox.pack_start(self.HourLabel,True,True,0)
+		LBox.pack_start(self.MinutesLabel,True,True,0)
+
 		SpinBox.pack_start(self.SBHours,True,True,0)
 		SpinBox.pack_start(self.SBMinutes,True,True,0)
 
@@ -67,7 +77,8 @@ class AppWindow(Gtk.Window):
 		BBox.pack_start(self.CancelButton,True,True,0)
 
 		#Vertical Boxes
-		vbox.pack_start(self.StatusLabel,False,False,2)
+		vbox.pack_start(self.StatusLabel,False,False,15)
+		vbox.pack_start(LBox,False,False,2)
 		vbox.pack_start(SpinBox,False,False,2)
 		vbox.pack_start(RBBox,False,False,2)
 		vbox.pack_start(BBox,False,False,2)
