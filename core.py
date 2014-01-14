@@ -77,7 +77,7 @@ class AppWindow(Gtk.Window):
 		BBox.pack_start(self.DoneButton,True,True,0)
 
 		#Vertical Boxes
-		vbox.pack_start(self.StatusLabel,False,False,15)
+		#vbox.pack_start(self.StatusLabel,False,False,15)
 		vbox.pack_start(LBox,False,False,2)
 		vbox.pack_start(SpinBox,False,False,2)
 		vbox.pack_start(RBBox,False,False,2)
@@ -125,6 +125,8 @@ class AppWindow(Gtk.Window):
 		self.ShutdownRB.set_sensitive(True)
 		self.RestartRB.set_sensitive(True)
 		self.HaltRB.set_sensitive(True)
+		self.HourLabel.set_sensitive(True)
+		self.MinutesLabel.set_sensitive(True)
 
 		subprocess.call(['shutdown','-c'])
 
