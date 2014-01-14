@@ -109,7 +109,8 @@ class AppWindow(Gtk.Window):
 		self.ShutdownRB.set_sensitive(False)
 		self.RestartRB.set_sensitive(False)
 		self.HaltRB.set_sensitive(False)
-
+		self.HourLabel.set_sensitive(False)
+		self.MinutesLabel.set_sensitive(False)
 		
 		self.Hours = self.SBHours.get_value_as_int()
 		self.Minutes = self.SBMinutes.get_value_as_int()
