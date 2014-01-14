@@ -73,8 +73,8 @@ class AppWindow(Gtk.Window):
 		RBBox.pack_start(self.RestartRB,True,True,0)
 		RBBox.pack_start(self.HaltRB,True,True,0)
 
-		BBox.pack_start(self.DoneButton,True,True,0)
 		BBox.pack_start(self.CancelButton,True,True,0)
+		BBox.pack_start(self.DoneButton,True,True,0)
 
 		#Vertical Boxes
 		vbox.pack_start(self.StatusLabel,False,False,15)
